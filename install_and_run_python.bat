@@ -2,7 +2,7 @@
 
 :: Set Python version and script name
 set PYTHON_VERSION=3.11.4
-set SCRIPT_NAME=test.py
+set SCRIPT_NAME=Recovery_Script.py
 
 :: Check if Python is already installed
 python --version >nul 2>&1
