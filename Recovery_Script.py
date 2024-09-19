@@ -1,3 +1,6 @@
+import os
+path = os.path.join("Recovered") 
+os.makedirs(path, exist_ok = True)
 drive = "\\\\.\\E:"    # Enter the disk/drive letter in place of 'E'
 fileD = open(drive, "rb") #drive is opened in raw bytes
 size = 1024              # Size of bytes to read
@@ -17,8 +20,8 @@ while byte:
     if found >= 0:
         drec = True
         print('==== Found PNG at location: ' + str(hex(found+(size*offs))) + ' ====')
-        # Now lets create recovered file and search for ending signature
-        fileN = open('recovered\\' + str(pngid) + '.png', "wb")
+        # Now lets create Recovered file and search for ending signature
+        fileN = open('Recovered\\' + str(pngid) + '.png', "wb")
         fileN.write(byte[found:])
         while drec:
             byte = fileD.read(size)
@@ -37,7 +40,7 @@ while byte:
         drec = True
         print('==== Found JPG at location: ' + str(hex(found+(size*offs))) + ' ====')
         # Now lets create recovered file and search for ending signature
-        fileN = open('recovered\\' + str(jepegid) + '.jpg', "wb")
+        fileN = open('Recovered\\' + str(jepegid) + '.jpg', "wb")
         fileN.write(byte[found:])
         while drec:
             byte = fileD.read(size)
@@ -56,7 +59,7 @@ while byte:
         drec = True
         print('==== Found PDF at location: ' + str(hex(found+(size*offs))) + ' ====')
         # Now lets create recovered file and search for ending signature
-        fileN = open('recovered\\' + str(pdfid) + '.pdf', "wb")
+        fileN = open('Recovered\\' + str(pdfid) + '.pdf', "wb")
         fileN.write(byte[found:])
         while drec:
             byte = fileD.read(size)
@@ -75,7 +78,7 @@ while byte:
         drec = True
         print('==== Found doc at location: ' + str(hex(found+(size*offs))) + ' ====')
         # Now lets create recovered file and search for ending signature
-        fileN = open('recovered\\' + str(docid) + '.docx', "wb")
+        fileN = open('Recovered\\' + str(docid) + '.docx', "wb")
         fileN.write(byte[found:])
         while drec:
             byte = fileD.read(size)
@@ -95,7 +98,7 @@ while byte:
         drec = True
         print('==== Found MP4 at location: ' + str(hex(found+(size*offs))) + ' ====')
         # Now lets create recovered file and search for ending signature
-        fileN = open('recovered\\' + str(mp4id) + '.mp4', "wb")
+        fileN = open('Recovered\\' + str(mp4id) + '.mp4', "wb")
         fileN.write(byte[found-4:])
         while drec:
             byte = fileD.read(size)
